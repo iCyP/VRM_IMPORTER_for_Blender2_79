@@ -15,11 +15,14 @@ from sys import float_info
 import bpy,bmesh
 class Glb_obj():
 	def __init__(self):
+		bpy.ops.vrm.model_validate()
+		
 		self.json_dic = OrderedDict()
 		self.bin = b""
 		self.glb_bin_collector = Glb_bin_collection()
 		self.armature = [obj for obj in bpy.context.selected_objects if obj.type == "ARMATURE"][0]
 		self.result = None
+
 	def convert_bpy2glb(self):
 		self.image_to_bin()
 		self.armature_to_node_and_scenes_dic() #親のないboneは1つだけ as root_bone
