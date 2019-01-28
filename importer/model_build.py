@@ -474,7 +474,7 @@ class Blend_model():
         #region first_person
         #TODO: mesh annotations
         firstperson_params = copy.deepcopy(vrm_ext_dic["firstPerson"])
-        if firstperson_params["firstPersonBone"] != -1:
+        if firstperson_params.get("firstPersonBone") != None and firstperson_params["firstPersonBone"] != -1:
             firstperson_params["firstPersonBone"] = self.vrm_pydata.json["nodes"][firstperson_params["firstPersonBone"]]["name"]
         if "meshAnnotations" in firstperson_params.keys():
             for meshAnotation in firstperson_params["meshAnnotations"]:
