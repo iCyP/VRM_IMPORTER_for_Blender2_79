@@ -151,6 +151,9 @@ class Blend_model():
         bone_nodes = [(root_node,-1) for root_node in root_nodes]
         while len(bone_nodes):
             bone_chain(bone_nodes.pop())
+        
+        self.armature.show_x_ray = True
+        self.armature.data.draw_type = "STICK"
         #call when bone built    
         bpy.context.scene.update()
         bpy.ops.object.mode_set(mode='OBJECT')
