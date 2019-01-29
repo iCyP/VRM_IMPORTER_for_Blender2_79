@@ -251,7 +251,7 @@ class Blend_model():
 
     def build_material_from_GLTF(self, b_mat, pymat):
         b_mat.use_shadeless = pymat.shadeless
-        b_mat.diffuse_color = self.sRGB_to_linear_color(pymat.base_color[0:3])#ungamma
+        b_mat.diffuse_color = self.sRGB_to_linear_color(pymat.base_color[0:3])
         self.set_material_transparent(b_mat, pymat.alphaMode)
 
         self.color_texture_add(
@@ -277,7 +277,7 @@ class Blend_model():
                 self.un_affect_texture_add(b_mat, tex_index, 0, tex_name)
         for k, v in pymat.vector_props_dic.items():
             if k == "_Color":
-                b_mat.diffuse_color =  self.sRGB_to_linear_color(v[0:3]) #gamma
+                b_mat.diffuse_color =  self.sRGB_to_linear_color(v[0:3])
             else:
                 b_mat[k] = v
         for k, v in pymat.keyword_dic.items():

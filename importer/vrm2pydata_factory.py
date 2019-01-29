@@ -45,12 +45,12 @@ def material(mat,ext_mat,textures)->VRM_Types.Material:
             if "baseColorFactor" in pbrmat:
                 gltf_mat.base_color = pbrmat["baseColorFactor"]
             if "metallicFactor" in pbrmat:
-                gltf_mat.metallicFactor = pbrmat["metallicFactor"]
+                gltf_mat.metallic_factor = pbrmat["metallicFactor"]
             if "roughnessFactor" in pbrmat:
-                gltf_mat.roughnessFactor = pbrmat["roughnessFactor"]
+                gltf_mat.roughness_factor = pbrmat["roughnessFactor"]
             if "metallicRoughnessTexture" in pbrmat:
-                gltf_mat.metallicRoughnessTexture_index = pbrmat["metallicRoughnessTexture"]
-                gltf_mat.metallicRoughnessTexture_texcoord = pbrmat["baseColorTexture"]["texCoord"]
+                gltf_mat.metallic_roughness_texture_index = pbrmat["metallicRoughnessTexture"]
+                gltf_mat.metallic_roughness_texture_texcood = pbrmat["baseColorTexture"]["texCoord"]
         if "normalTexture" in mat:
             gltf_mat.normal_texture_index = mat["normalTexture"]["index"]
             gltf_mat.normal_texture_texcoord_index = mat["normalTexture"]["texCoord"]
