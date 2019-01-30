@@ -237,7 +237,7 @@ class Glb_obj():
 			elif b_mat.transparency_method == "MASK":
 				material_prop_setter(1,1,0,1,True,2450,"TransparentCutout")
 			else:  #transparent and Z_TRANPARENCY or Raytrace
-				material_prop_setter(3,5,10,1,True,3000,"Transparent")
+				material_prop_setter(2,5,10,0,False,3000,"Transparent")
 			keyword_map.update({"_ALPHABLEND_ON": b_mat.use_transparency})
 			keyword_map.update({"_ALPHAPREMULTIPLY_ON":False})
 			

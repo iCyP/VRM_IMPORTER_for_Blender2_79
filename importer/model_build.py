@@ -246,7 +246,6 @@ class Blend_model():
                 gamma_color[i] = c / 12.92
             else:
                 gamma_color[i] = pow((c+0.055)/1.055,2.4)
-        print(color,gamma_color)
         return gamma_color
 
     def build_material_from_GLTF(self, b_mat, pymat):
