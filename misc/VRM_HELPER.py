@@ -182,7 +182,6 @@ class VRM_VALIDATOR(bpy.types.Operator):
     
     @staticmethod
     def texts_draw():
-        # 文字列「Suzanne on your View3D region」の描画
         text_size = 20
         dpi = 72
         blf.size(0, text_size, dpi)
