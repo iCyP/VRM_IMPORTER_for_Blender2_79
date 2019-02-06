@@ -15,15 +15,15 @@ import os
 
 bl_info = {
     "name":"VRM_IMPORTER",
-    "author": "iCyP",
+    "author": "based_on_iCyP",
     "version": (0, 5),
     "blender": (2, 79, 0),
     "location": "File->Import",
-    "description": "VRM Importer",
-    "warning": "",
+    "description": "VRM(less than spec0.0(uniVRM0.49)) Importer",
+    "warning": "THIS ADDON IS OUTDATED. NO SURPORT. In particular,there is no warranteis of safe, if you don't download this from https://github.com/iCyP/VRM_IMPORTER_for_Blender2_79, ",
     "support": "TESTING",
     "wiki_url": "",
-    "tracker_url": "",
+    "tracker_url": "https://github.com/iCyP/VRM_IMPORTER_for_Blender2_79",
     "category": "Import-Export"
 }
 
@@ -67,7 +67,7 @@ class ExportVRM(bpy.types.Operator,ExportHelper):
 
     def execute(self,context):
         fdir = self.filepath
-        bin =  glb_factory.Glb_obj().convert_bpy2glb()
+        bin =  glb_factory.Glb_obj(bl_info["author"]).convert_bpy2glb()
         with open(fdir,"wb") as f:
             f.write(bin)
         return {'FINISHED'}

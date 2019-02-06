@@ -256,6 +256,7 @@ def material_read(vrm_pydata):
         VRM_EXTENSION_material_propaties = vrm_pydata.json["extensions"]["VRM"]["materialProperties"]
     except Exception as e:
         print(e)
+        VRM_EXTENSION_material_propaties = [{"shader":"VRM_USE_GLTFSHADER"}]*len(vrm_pydata.json["materials"])
     if "textures" in vrm_pydata.json:
         textures = vrm_pydata.json["textures"]
     for mat,ext_mat in zip(vrm_pydata.json["materials"],VRM_EXTENSION_material_propaties):

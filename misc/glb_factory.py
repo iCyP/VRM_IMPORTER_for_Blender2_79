@@ -14,7 +14,7 @@ import struct
 from sys import float_info
 import bpy,bmesh
 class Glb_obj():
-	def __init__(self):
+	def __init__(self,author):
 		bpy.ops.vrm.model_validate()
 		
 		self.json_dic = OrderedDict()
@@ -22,6 +22,7 @@ class Glb_obj():
 		self.glb_bin_collector = Glb_bin_collection()
 		self.armature = [obj for obj in bpy.context.selected_objects if obj.type == "ARMATURE"][0]
 		self.result = None
+		self.author = author
 
 	def convert_bpy2glb(self):
 		self.image_to_bin()
@@ -491,11 +492,12 @@ class Glb_obj():
 			
 		return
 
+
 	def glTF_meta_to_dic(self):
 		glTF_meta_dic = {
 			"extensionsUsed":["VRM"],
 			"asset":{
-				"generator":"icyp_blender_vrm_exporter_experimental_0.0",
+				"generator":self.author+"_blender_vrm_exporter_experimental_0.0",
 				"version":"2.0"
 				}
 			}
@@ -507,7 +509,7 @@ class Glb_obj():
 		#materialProperties　は　material_to_dic()で処理する
 		#region vrm_extension
 		vrm_extension_dic = OrderedDict()
-		vrm_extension_dic["exporterVersion"] = "icyp_blender_vrm_exporter_experimental_0.0"
+		vrm_extension_dic["exporterVersion"] = self.author+"_blender_vrm_exporter_experimental_0.0"
 		#region meta
 		vrm_extension_dic["meta"] = vrm_meta_dic = {}
 		vrm_metas = [
